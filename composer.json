@@ -34,7 +34,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaraChat\\ChatPackage\\Providers\\ChatPackageServiceProvider"
+                "LaraChat\\ChatPackage\\ChatPackageServiceProvider"
             ],
             "aliases": {
                 "Chat": "LaraChat\\ChatPackage\\Facades\\Chat"

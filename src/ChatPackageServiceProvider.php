@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraChat\ChatPackage\Providers;
+namespace LaraChat\ChatPackage;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
