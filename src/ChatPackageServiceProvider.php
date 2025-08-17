@@ -43,12 +43,6 @@ class ChatPackageServiceProvider extends ServiceProvider
                 InstallChatCommand::class,
                 PublishChatCommand::class,
             ]);
-            
-            // Register optimize commands
-            $this->optimizes(
-                optimize: 'chat:optimize',
-                clear: 'chat:clear-optimizations',
-            );
         }
         
         // Publish package assets
@@ -64,11 +58,13 @@ class ChatPackageServiceProvider extends ServiceProvider
             __DIR__.'/../database/migrations' => database_path('migrations')
         ], 'chat-migrations');
         
-        // Add package info to about command
-        AboutCommand::add('LaraChat Package', fn () => [
-            'Version' => '1.0.0',
-            'Features' => 'Real-time chat, file sharing, group chats, and more'
-        ]);
+        // Add package info to about command (Laravel 12 compatible)
+        if (class_exists(AboutCommand::class)) {
+            AboutCommand::add('LaraChat Package', fn () => [
+                'Version' => '1.0.0',
+                'Features' => 'Real-time chat, file sharing, group chats, and more'
+            ]);
+        }
         
         // Register middleware
         $this->app['router']->aliasMiddleware('chat.auth', \LaraChat\ChatPackage\Http\Middleware\ChatAuthMiddleware::class);

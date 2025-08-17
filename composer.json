@@ -15,7 +15,8 @@
         "inertiajs/inertia-laravel": "^1.0",
         "pusher/pusher-php-server": "^7.0",
         "spatie/laravel-permission": "^6.0",
-        "spatie/laravel-activitylog": "^4.0"
+        "spatie/laravel-activitylog": "^4.0",
+        "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
         "orchestra/testbench": "^9.0",
