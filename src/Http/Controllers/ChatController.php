@@ -1,9 +1,11 @@
 <?php
 
+
 namespace LaraChat\ChatPackage\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
 use Inertia\Inertia;
 use Inertia\Response;
 use LaraChat\ChatPackage\Models\Conversation;
@@ -15,6 +17,7 @@ use LaraChat\ChatPackage\Events\TypingStarted;
 use LaraChat\ChatPackage\Events\TypingStopped;
 use LaraChat\ChatPackage\Http\Requests\StoreMessageRequest;
 use LaraChat\ChatPackage\Http\Requests\UpdateMessageRequest;
+
 
 class ChatController extends Controller
 {
