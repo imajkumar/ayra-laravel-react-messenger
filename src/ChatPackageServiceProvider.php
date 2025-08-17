@@ -16,7 +16,7 @@ class ChatPackageServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/chat.php', 'chat');
+        $this->mergeConfigFrom(__DIR__.'/../config/chat.php', 'chat');
         
         $this->app->singleton('chat', function ($app) {
             return new \LaraChat\ChatPackage\Services\ChatService();
@@ -29,10 +29,10 @@ class ChatPackageServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Load package resources
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'chat');
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
-        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
-        $this->loadJsonTranslationsFrom(__DIR__.'/../../resources/lang');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'chat');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadJsonTranslationsFrom(__DIR__.'/../resources/lang');
         
         // Register Blade components
         Blade::componentNamespace('LaraChat\\ChatPackage\\View\\Components', 'chat');
@@ -53,15 +53,15 @@ class ChatPackageServiceProvider extends ServiceProvider
         
         // Publish package assets
         $this->publishes([
-            __DIR__.'/../../config/chat.php' => config_path('chat.php'),
-            __DIR__.'/../../resources/views' => resource_path('views/vendor/chat'),
-            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/chat'),
-            __DIR__.'/../../public/vendor/larachat' => public_path('vendor/larachat'),
+            __DIR__.'/../config/chat.php' => config_path('chat.php'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/chat'),
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/chat'),
+            __DIR__.'/../public/vendor/larachat' => public_path('vendor/larachat'),
         ], 'chat');
         
         // Publish migrations separately
         $this->publishesMigrations([
-            __DIR__.'/../../database/migrations' => database_path('migrations')
+            __DIR__.'/../database/migrations' => database_path('migrations')
         ], 'chat-migrations');
         
         // Add package info to about command
