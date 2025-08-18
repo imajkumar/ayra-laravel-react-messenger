@@ -1,0 +1,58 @@
+{
+    "name": "larachat/chat-package",
+    "description": "A comprehensive Laravel chat package with React, Inertia, and Socket.io",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LaraChat Team",
+            "email": "team@larachat.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "inertiajs/inertia-laravel": "^1.0",
+        "laravel/framework": "^11.0|^12.0",
+        "pusher/pusher-php-server": "^7.0",
+        "spatie/laravel-activitylog": "^4.0",
+        "spatie/laravel-permission": "^6.0",
+        "tightenco/ziggy": "^2.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "LaraChat\\ChatPackage\\": "lara-chat-package/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/",
+            "LaraChat\\ChatPackage\\Tests\\": "lara-chat-package/tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaraChat\\ChatPackage\\ChatPackageServiceProvider"
+            ],
+            "aliases": {
+                "Chat": "LaraChat\\ChatPackage\\Facades\\Chat"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": {
+        "larachat": {
+            "type": "path",
+            "url": "lara-chat-package"
+        }
+    }
+}
